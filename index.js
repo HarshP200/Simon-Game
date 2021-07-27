@@ -12,6 +12,14 @@ $(document).keypress(function(){
     }
 });
 
+$(document).click(function(){
+    if(level === 0){
+        $(".box").css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+        $("h2").hide();
+        addColor();
+    }
+});
+
 function addColor(){
     $("h1").fadeOut(300, function() {
         $(this).text("Level " + level).fadeIn(300);
@@ -121,7 +129,8 @@ function GameOver(){
     else $(".complement").text("Better Luck Next Time!").fadeIn(2000);
 
     $(".box").hide();
-
-    index = -1;
-    level = 0;
+    setTimeout(() => {
+        index = -1;
+        level = 0;
+    },2000)
 }
